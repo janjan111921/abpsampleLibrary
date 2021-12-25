@@ -1,0 +1,109 @@
+<form
+  class="form-horizontal"
+  autocomplete="off"
+  #createBookModal="ngForm"
+  (ngSubmit)="save()"
+>
+  <abp-modal-header
+    [title]="Title"
+    (onCloseClick)="bsModalRef.hide()"
+  ></abp-modal-header>
+  <div class="modal-body">
+   
+        <div class="form-group">
+          <label class="col-md-3 col-form-label" for="title">
+            {{ "Title" | localize }}
+          </label>
+          <div class="col-md-9">
+            <input
+              type="text"
+              class="form-control"
+              name="title"
+              id="title"
+              required
+              maxlength="32"
+              [(ngModel)]="book.title"
+              #nameModel="ngModel"
+              #nameEl
+            />
+           
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 col-form-label" for="releasedate">
+              {{ "ReleaseDate" | localize }}
+            </label>
+            <div class="col-md-9">
+              <input
+                type="text"
+                class="form-control"
+                name="releasedate"
+                id="releasedate"
+                [(ngModel)]="book.releaseDate"
+                #nameModel="ngModel"
+                #nameEl
+              />
+              
+            </div>
+          </div>
+
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="publishername">
+              {{ "Description" | localize }}
+            </label>
+            <div class="col-md-9">
+              <input
+                type="text"
+                class="form-control"
+                name="publishername"
+                id="publishername"
+                maxlength="32"
+                [(ngModel)]="book.publisherName"
+                #publishernameModel="ngModel"
+                #dpublishernameEl
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-3 col-form-label" for="publishdate">
+              {{ "ReleaseDate" | localize }}
+            </label>
+            <div class="col-md-9">
+              <input
+                type="text"
+                class="form-control"
+                name="publishdate"
+                id="publishdate"
+                [(ngModel)]="book.publishDate"
+                #publishdateModel="ngModel"
+                #publishdateEl
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-3 col-form-label" for="totalpages">
+              {{ "ReleaseDate" | localize }}
+            </label>
+            <div class="col-md-9">
+              <input
+                type="text"
+                class="form-control"
+                name="totalpages"
+                id="totalpages"
+                [(ngModel)]="book.totalPages"
+                #totalpagesModel="ngModel"
+                #totalpagesEl
+              />
+            </div>
+          </div>
+    
+  </div>
+  <abp-modal-footer
+    [cancelDisabled]="saving"
+    [saveDisabled]="!createBookModal.form.valid || saving"
+    (onCancelClick)="bsModalRef.hide()"
+  ></abp-modal-footer>
+</form>
